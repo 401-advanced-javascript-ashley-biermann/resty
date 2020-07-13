@@ -7,15 +7,12 @@
 import React from 'react';
 import './design/design.scss';
 import Header from './components/header/header.js';
-// import Footer from 
+import Form from './components/form/form.js';
+import Footer from './components/footer/footer.js';
 
-
-// create our component, what makes something a React Component
-// it must return JSX
 class App extends React.Component {
   constructor() {
     super();
-    // Each component has it's own state
     this.state = {
       words: 'Default State',
     };
@@ -39,8 +36,11 @@ class App extends React.Component {
           words={this.state.words}
           handleState={this.handleStateWords}
         />
-        {/* We  */}
         <p>{this.state.words}</p>
+        <Form>
+          
+        </Form>
+        <Footer></Footer>
       </div>
     );
   }

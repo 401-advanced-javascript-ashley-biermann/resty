@@ -1,4 +1,6 @@
-// From class code
+/**
+ * Header
+ */
 
 import React from 'react';
 
@@ -9,7 +11,7 @@ class Header extends React.Component {
       <h1
         onClick={() => this.props.handleState('state words')}
       >
-        My First React Component {this.props.words}
+        Resty ... A Simple ReST Client {this.props.words}
       </h1>
     );
   }
