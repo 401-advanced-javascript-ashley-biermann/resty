@@ -1,0 +1,22 @@
+// font-family 'Nunito', sans-serif
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+
+$color-primary-0: #C409FF;	// Main Primary color */
+$color-primary-1: #EAA7FF;
+$color-primary-2: #DE75FF;
+$color-primary-3: #6D0090;
+$color-primary-4: #54006E;
+
+$baseBackground: $color-primary-1;
+$baseFont: 'Nunito', sans-serif;
+$baseColor: $color-primary-4;
+$emptyBoxColor: #F5E3FB;
+
+$unclickedButton: #F5E3FB;
+$buttonHover: $color-primary-2;
+
+$headerTextColor: $color-primary-1;
+$headerBackground: $color-primary-4;
+
+$footerTextColor: $color-primary-1;
+$footerBackground: $color-primary-4;

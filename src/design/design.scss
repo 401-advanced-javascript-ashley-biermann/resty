@@ -1,11 +1,14 @@
-// From class code
 
-// Provides base design for the site
+// The one SCSS document to hold it all!
+
+@import './variables';
+@import '../components/header/header.scss';
+@import '../components/form/form.scss';
+@import '../components/footer/footer.scss';
 
 div {
-  background-color: grey;
-
-  p {
-    color: yellow;
-  }
+  background-color: $baseBackground;
+  font-family: $baseFont;
+  color: $baseColor;
 }
+
