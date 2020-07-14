@@ -7,8 +7,11 @@
 @import '../components/footer/footer.scss';
 
 div {
+  text-align: left;
   background-color: $baseBackground;
   font-family: $baseFont;
   color: $baseColor;
+  display: inline-flexbox;
+  width: max-width;
 }
 
