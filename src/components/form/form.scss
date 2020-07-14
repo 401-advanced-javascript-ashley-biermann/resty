@@ -1,11 +1,16 @@
 @import './variables';
 
 #form {
+  margin-left: 200px;
+  margin-right: 200px;
+
   height: 75vh;
-  padding-left: 20px;
-  padding-right: 20px;
   text-align: center;
   
+  form {
+
+  }
+
   legend {
     padding: 6px;
   }
@@ -37,6 +42,7 @@
 
 #apiRequest {
   height: 20vh;
+  border: 50px;
   background-color: $emptyBoxColor;
   p {
     word-spacing: 20px;
