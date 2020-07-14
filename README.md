@@ -6,7 +6,7 @@
 
 ### Links and Resources
 
-- [submission PR]()
+- [submission PR](https://github.com/401-advanced-javascript-ashley-biermann/resty/pull/2)
 - [ci/cd](https://github.com/401-advanced-javascript-ashley-biermann/notes/tree/master/.github/workflows) (GitHub Actions)
 - [back-end server url]() (when applicable)
 - [front-end application]() (when applicable)
@@ -32,5 +32,5 @@
 
 #### UML
 
-- ![]()
+- ![restyuml](./images/restyuml.jpg)
 Link to an image of the UML for your application and response to events
