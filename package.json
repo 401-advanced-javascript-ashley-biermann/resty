@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://github.com/401-advanced-javascript-ashley-biermann/resty",
+  "homepage": "https://401-advanced-javascript-ashley-biermann.github.io/resty/",
   
   "scripts": {
     "start": "react-scripts start",
