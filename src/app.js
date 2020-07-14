@@ -25,9 +25,16 @@ class App extends React.Component {
     this.setState({ words });
   }
 
-  render() {
+  // handleSubmit(event) {
+  //   console.log('A request was submitted');
+  //   event.preventDefault();
+  // }
 
-    console.log(this.state);
+  // handleChange(event) {
+  //   this.setState({ value: event.target.value });
+  // }
+
+  render() {
 
     // new React.component({words: 'aiuerhau', handleState: function})
     return (
@@ -36,7 +43,9 @@ class App extends React.Component {
           // words={this.state.words}
           // handleState={this.handleStateWords}
         />
-        <Form></Form>
+        <Form>
+          handleSubmit={this.handleSumbit}
+        </Form>
         <Footer></Footer>
       </div>
     );

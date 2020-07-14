@@ -28,43 +28,40 @@ class Form extends React.Component {
 
   render() {
     return (
-      <div id="formIntake">
+      <div id="form">
         <form onSubmit={this.handleSubmit}>
 
           <legend>Enter API URL, and click on desired METHOD</legend>
 
           <input type="text" value={this.state.value} onChange={this.handleChange} placeholder="URL"></input>
 
-          <button type="submit" value="Submit">Search the API</button>
-
-          <section id="methods">
-            <button onClick={() => this.setState({
-              method: 'GET',
-            })} type="radio" name="method" value="get"><span>GET</span></button>
-
-            <button onClick={() => this.setState({
-              method: 'POST',
-            })} type="radio" name="method" value="post"><span>POST</span></button>
-
-            <button onClick={() => this.setState({
-              method: 'PUT',
-            })} type="radio" name="method" value="put"><span>PUT</span></button>
-
-            <button onClick={() => this.setState({
-              method: 'PATCH',
-            })} type="radio" name="method" value="patch"><span>PATCH</span></button>
-
-            <button onClick={() => this.setState({
-              method: 'DELETE',
-            })} type="radio" name="method" value="delete"><span>DELETE</span></button>
-          </section>
+          <button type="submit" value="Submit"><span>Search the API</span></button>
         </form>
 
+        <section id="methods">
+          <button onClick={() => this.setState({
+            method: 'get',
+          })} type="radio" value="get"><span>GET</span></button>
+
+          <button onClick={() => this.setState({
+            method: 'post',
+          })} type="radio" value="post"><span>POST</span></button>
+
+          <button onClick={() => this.setState({
+            method: 'put',
+          })} type="radio" value="put"><span>PUT</span></button>
+
+          <button onClick={() => this.setState({
+            method: 'patch',
+          })} type="radio" value="patch"><span>PATCH</span></button>
+
+          <button onClick={() => this.setState({
+            method: 'delete',
+          })} type="radio" value="delete"><span>DELETE</span></button>
+        </section>
+
         <section id="apiRequest">
-          <p>
-            {this.state.method} <br></br>
-            {this.state.value}
-          </p>
+          <p>{this.state.method} {this.state.value}</p>
         </section>
       </div>
     );

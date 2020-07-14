@@ -1,0 +1,44 @@
+@import './variables';
+
+#form {
+  height: 75vh;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  
+  legend {
+    padding: 6px;
+  }
+
+  input {
+    padding: 6px;
+  }
+
+  button {
+    background-color: $unclickedButton;
+    border-color: $unclickedButton;
+    &:hover {
+      background-color: $buttonHover;
+    }
+    span {
+      font-family: $baseFont;
+    }
+  } 
+  
+  #methods {
+    button {
+      margin: 10px;
+      &:focus {
+        background-color: $methodButtonSelected ;
+      }
+    }
+  }
+}
+
+#apiRequest {
+  height: 20vh;
+  background-color: $emptyBoxColor;
+  p {
+    word-spacing: 20px;
+  }
+}
