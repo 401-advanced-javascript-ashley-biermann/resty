@@ -9,9 +9,10 @@ class Header extends React.Component {
   render() {
     return (
       <h1
-        onClick={() => this.props.handleState('state words')}
+        // onClick={() => this.props.handleState('state words')}
       >
-        Resty ... A Simple ReST Client {this.props.words}
+        Resty ... A Simple ReST Client 
+        {/* {this.props.words} */}
       </h1>
     );
   }

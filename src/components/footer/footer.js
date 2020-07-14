@@ -8,7 +8,7 @@ class Footer extends React.Component {
   render() {
     return (
       <p>
-        2020 Biermann - Code Fellows Project
+        &copy 2020 Biermann - Code Fellows Project
       </p>
     );
   }

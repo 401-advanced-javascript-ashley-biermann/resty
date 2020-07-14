@@ -33,13 +33,10 @@ class App extends React.Component {
     return (
       <div>
         <Header
-          words={this.state.words}
-          handleState={this.handleStateWords}
+          // words={this.state.words}
+          // handleState={this.handleStateWords}
         />
-        <p>{this.state.words}</p>
-        <Form>
-          
-        </Form>
+        <Form></Form>
         <Footer></Footer>
       </div>
     );
