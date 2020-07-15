@@ -1,4 +1,4 @@
-# LAB: Component Based UI | Class 27
+# LAB: Component Based UI | Class 28
 
 ## Project: RESTy
 
@@ -24,7 +24,6 @@
 #### Tests
 
 - `npm test`
-- Still working on a test that requires use of a function with event.preventDefault.
 
 #### UML
 

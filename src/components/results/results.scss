@@ -1,0 +1,19 @@
+@import './variables';
+
+#results {
+  margin-left: 200px;
+  margin-right: 200px;
+  text-align: center;
+
+  p {
+    background-color: $emptyBoxColor;
+    height: 5vh;
+  }
+
+  section {
+    background-color: $emptyBoxColor;
+    padding-top: 20px;
+    height: 43vh;
+    overflow: scroll;
+  }
+}

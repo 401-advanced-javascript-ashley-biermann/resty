@@ -1,5 +1,6 @@
 /**
  * Footer
+ * @component Footer
  */
 
 import React from 'react';

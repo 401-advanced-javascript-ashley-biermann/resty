@@ -1,6 +1,6 @@
 /**
  * Form
- * @class Form
+ * @component Form
  */
 
 import React from 'react';
@@ -10,7 +10,7 @@ class Form extends React.Component {
     super(props);
     this.state = {
       value: '',
-      method: '',
+      method: 'get',
       display: '',
     };
 
@@ -22,16 +22,32 @@ class Form extends React.Component {
     this.setState({ value: event.target.value });
   }
 
-  handleSubmit(event) {
-    // console.log('A request was submitted');
+  //   On submit
+  // Send the API results back to the <App> using the method sent down in props
+
+  async handleSubmit(event) {
     event.preventDefault();
-    this.setState({display: this.state.method + '   ' + this.state.value });
+
+    let data = await fetch('https://pokeapi.co/api/v2/pokemon');
+    let json = await data.json();
+
+    let count =json.count;
+
+    let results = json.results.reduce((list, pokemon) => {
+      list[pokemon.name] = pokemon.url;
+      return list;
+    }, {});
+    console.log(count);
+    console.log(results);
+    this.props.handler(count, results);
+
+    // this.setState({ display: this.state.method + '   ' + this.state.value });
   }
 
   render() {
     return (
       <div id="form">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}> 
 
           <legend>Enter API URL, and click on desired METHOD</legend>
 
@@ -63,7 +79,7 @@ class Form extends React.Component {
         </section>
 
         <section id="apiRequest">
-          <p>{this.state.display}</p>
+          <p>Request: {this.state.display}</p>
         </section>
       </div>
     );
