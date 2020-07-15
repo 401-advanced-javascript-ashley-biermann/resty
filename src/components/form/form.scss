@@ -6,10 +6,6 @@
 
   height: 75vh;
   text-align: center;
-  
-  form {
-
-  }
 
   legend {
     padding: 6px;
@@ -19,7 +15,7 @@
     padding: 6px;
   }
 
-  button {
+  .button {
     background-color: $unclickedButton;
     border-color: $unclickedButton;
     &:hover {
@@ -31,7 +27,7 @@
   } 
   
   #methods {
-    button {
+    .button {
       margin: 10px;
       &:focus {
         background-color: $methodButtonSelected ;
