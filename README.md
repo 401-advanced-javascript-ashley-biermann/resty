@@ -1,4 +1,4 @@
-# LAB: Component Based UI | Class 26
+# LAB: Component Based UI | Class 27
 
 ## Project: RESTy
 
@@ -6,17 +6,14 @@
 
 ### Links and Resources
 
-- [submission PR](https://github.com/401-advanced-javascript-ashley-biermann/resty/pull/2)
+- [submission PR](https://github.com/401-advanced-javascript-ashley-biermann/resty/pull/4)
 - [ci/cd](https://github.com/401-advanced-javascript-ashley-biermann/notes/tree/master/.github/workflows) (GitHub Actions)
+- [front-end application](https://401-advanced-javascript-ashley-biermann.github.io/resty/)
 - [back-end server url]() (when applicable)
-- [front-end application]() (when applicable)
 
 ### Setup
 
 #### `.env` requirements (where applicable)
-
-- `PORT` - Port Number
-- `MONGODB_URI` - URL to the running mongo instance/db
 
 #### How to initialize/run your application (where applicable)
 
@@ -27,8 +24,7 @@
 #### Tests
 
 - `npm test`
-- Any tests of note?
-- Describe any tests that you did not complete, skipped, etc
+- Still working on a test that requires use of a function with event.preventDefault.
 
 #### UML
 

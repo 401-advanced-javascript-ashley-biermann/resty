@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing the Form component renders correctly 1`] = `
+<div
+  id="form"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <legend>
+      Enter API URL, and click on desired METHOD
+    </legend>
+    <input
+      id="urlInput"
+      onChange={[Function]}
+      placeholder="URL"
+      type="text"
+      value=""
+    />
+    <input
+      className="button"
+      id="submitButton"
+      type="submit"
+      value="GO"
+    />
+  </form>
+  <section
+    id="methods"
+  >
+    <input
+      className="button"
+      id="get"
+      onClick={[Function]}
+      type="button"
+      value="GET"
+    />
+    <input
+      className="button"
+      id="post"
+      onClick={[Function]}
+      type="button"
+      value="POST"
+    />
+    <input
+      className="button"
+      id="put"
+      onClick={[Function]}
+      type="button"
+      value="PUT"
+    />
+    <input
+      className="button"
+      id="patch"
+      onClick={[Function]}
+      type="button"
+      value="PATCH"
+    />
+    <input
+      className="button"
+      id="delete"
+      onClick={[Function]}
+      type="button"
+      value="DELETE"
+    />
+  </section>
+  <section
+    id="apiRequest"
+  >
+    <p>
+      
+    </p>
+  </section>
+</div>
+`;
