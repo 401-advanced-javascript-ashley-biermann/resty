@@ -18,21 +18,20 @@ class Results extends React.Component {
           </section>
         </div>
       );
-      
+
     } else {
-      
+
       console.log(this.props.results);
       return (
         <div id="results">
           <p>Count: {this.props.count}</p>
           <section>
             <ul>
-              {Object.keys(this.props.results).map((results, idx) => {
+              {this.props.results.map((results, idx) => {
                 console.log(this.props.results[idx]);
-                // {p.companyinfoarray.map(companyinfo => <Company key={companyinfo.id} {...companyinfo}/>)}
                 return (
                   <li key={idx}>
-                    <a href={this.props.results[results]}>{results}</a>
+                    {JSON.stringify(results)}
                   </li>
                 );
               })}
