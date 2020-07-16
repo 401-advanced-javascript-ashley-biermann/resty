@@ -10,66 +10,70 @@ class Form extends React.Component {
     super(props);
     this.state = {
       value: '',
-      method: '',
+      method: 'get',
       display: '',
     };
 
-    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({ value: event.target.value });
   }
 
-  async handleSubmit(event) {
+  // handleClick = (event) => {
+  //   event.preventDefault();
+  //   const { name, value } = event.target;
+  //   this.setState({ [name]: value }, () => console.log(this.state));
+  // }
+
+  async handleSubmit (event) {
     event.preventDefault();
 
-    let data = await fetch(this.state.value);
-    // 'https://pokeapi.co/api/v2/pokemon'
-    // 'https://swapi.dev/api/people'
-    let json = await data.json();
-    let count =json.count;
+    let restOption = {
+      method: this.state.method,
+    }
 
-    console.log('data.json.results', json.results);
+    let response = await fetch(this.state.value, restOption);
+    let headers = JSON.stringify(response.headers, null, 2);
+    let data = await response.json();
+    let results = JSON.stringify(data);
 
-    let results = json.results;
-
-    this.props.handler(count, results);
+    this.props.handler(headers, results);
   }
 
   render() {
     return (
       <div id="form">
-        <form onSubmit={this.handleSubmit}> 
+        <form onSubmit={this.handleSubmit}>
 
           <legend>Enter API URL, and click on desired METHOD</legend>
 
-          <input id="urlInput" type="text" value={this.state.value} onChange={this.handleChange} placeholder="URL"></input>
+          <input name="url" id="urlInput" type="text" value={this.state.value} onChange={this.handleChange} placeholder="URL" />
 
-          <input className="button" id="submitButton" type="submit" value="GO"></input>
+          <input name="submit" className="button" id="submitButton" type="submit" value="GO" />
         </form>
 
         <section id="methods">
-          <input className="button" id="get" onClick={() => this.setState({
+          <input name="get" className="button" id="get" onClick={() => this.setState({
             method: 'get',
-          })} type="button" value="GET"></input>
+          })} type="button" value="GET" />
 
-          <input className="button" id="post" onClick={() => this.setState({
+          <input name="post" className="button" id="post" onClick={() => this.setState({
             method: 'post',
-          })} type="button" value="POST"></input>
+          })} type="button" value="POST" />
 
-          <input className="button" id="put" onClick={() => this.setState({
+          <input name="put" className="button" id="put" onClick={() => this.setState({
             method: 'put',
-          })} type="button" value="PUT"></input>
+          })} type="button" value="PUT" />
 
-          <input className="button" id="patch" onClick={() => this.setState({
+          <input name="patch" className="button" id="patch" onClick={() => this.setState({
             method: 'patch',
-          })} type="button" value="PATCH"></input>
+          })} type="button" value="PATCH" />
 
-          <input className="button" id="delete" onClick={() => this.setState({
+          <input name="delete" className="button" id="delete" onClick={() => this.setState({
             method: 'delete',
-          })} type="button" value="DELETE"></input>
+          })} type="button" value="DELETE" />
         </section>
 
         <section id="apiRequest">

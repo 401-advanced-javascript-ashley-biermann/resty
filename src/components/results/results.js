@@ -22,21 +22,17 @@ class Results extends React.Component {
 
     } else {
 
-      console.log(this.props.results);
       return (
         <div id="results">
-          <p>Count: {this.props.count}</p>
           <section>
+
             <ul>
-              {this.props.results.map((results, idx) => {
-                console.log(this.props.results[idx]);
-                return (
-                  <li key={idx}>
-                    <JSONPretty id="json-pretty" data={JSON.stringify(results)}></JSONPretty>
-                  </li>
-                );
-              })}
+              <JSONPretty id="json-pretty" data={this.props.headers}></JSONPretty>
             </ul>
+            <ul>
+              <JSONPretty id="json-pretty" data={this.props.results}></JSONPretty>
+            </ul>
+
           </section>
         </div>
       );

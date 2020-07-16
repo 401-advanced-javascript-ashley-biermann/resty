@@ -13,15 +13,15 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      count: 0,
-      results: [],
+      headers: '',
+      results: '',
     };
 
     this.handleForm = this.handleForm.bind(this);
   }
-
-  handleForm (count, results) {
-    this.setState({ count, results });
+// remove count, add headers
+  handleForm (headers, results) {
+    this.setState({ headers, results });
   }
 
   render() {
@@ -29,7 +29,7 @@ class App extends React.Component {
       <div>
         <Header />
         <Form handler={this.handleForm} />
-        <Results count={this.state.count} results={this.state.results} />
+        <Results headers={this.state.headers} results={this.state.results} />
         <Footer />
       </div>
     );
