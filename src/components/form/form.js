@@ -10,7 +10,7 @@ class Form extends React.Component {
     super(props);
     this.state = {
       value: '',
-      method: 'get',
+      method: '',
       display: '',
     };
 
@@ -22,26 +22,20 @@ class Form extends React.Component {
     this.setState({ value: event.target.value });
   }
 
-  //   On submit
-  // Send the API results back to the <App> using the method sent down in props
-
   async handleSubmit(event) {
     event.preventDefault();
 
-    let data = await fetch('https://pokeapi.co/api/v2/pokemon');
+    let data = await fetch(this.state.value);
+    // 'https://pokeapi.co/api/v2/pokemon'
+    // 'https://swapi.dev/api/people'
     let json = await data.json();
-
     let count =json.count;
 
-    let results = json.results.reduce((list, pokemon) => {
-      list[pokemon.name] = pokemon.url;
-      return list;
-    }, {});
-    console.log(count);
-    console.log(results);
-    this.props.handler(count, results);
+    console.log('data.json.results', json.results);
 
-    // this.setState({ display: this.state.method + '   ' + this.state.value });
+    let results = json.results;
+
+    this.props.handler(count, results);
   }
 
   render() {

@@ -10,24 +10,26 @@ class Results extends React.Component {
   render() {
 
     if (!Object.keys(this.props.results).length) {
-
       return (
         <div id="results">
-          <p>Please Can I has?? </p>
+          <p>Please Can I Has?? </p>
           <section>
-            Not yet....
+            Wait for it ...
           </section>
         </div>
       );
-
+      
     } else {
-
+      
+      console.log(this.props.results);
       return (
         <div id="results">
           <p>Count: {this.props.count}</p>
           <section>
             <ul>
               {Object.keys(this.props.results).map((results, idx) => {
+                console.log(this.props.results[idx]);
+                // {p.companyinfoarray.map(companyinfo => <Company key={companyinfo.id} {...companyinfo}/>)}
                 return (
                   <li key={idx}>
                     <a href={this.props.results[results]}>{results}</a>
