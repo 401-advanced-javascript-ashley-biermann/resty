@@ -1,5 +1,6 @@
 /**
  * Header
+ * @component Header
  */
 
 import React from 'react';

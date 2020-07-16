@@ -1,6 +1,6 @@
 /**
  * Form
- * @class Form
+ * @component Form
  */
 
 import React from 'react';
@@ -22,16 +22,26 @@ class Form extends React.Component {
     this.setState({ value: event.target.value });
   }
 
-  handleSubmit(event) {
-    // console.log('A request was submitted');
+  async handleSubmit(event) {
     event.preventDefault();
-    this.setState({display: this.state.method + '   ' + this.state.value });
+
+    let data = await fetch(this.state.value);
+    // 'https://pokeapi.co/api/v2/pokemon'
+    // 'https://swapi.dev/api/people'
+    let json = await data.json();
+    let count =json.count;
+
+    console.log('data.json.results', json.results);
+
+    let results = json.results;
+
+    this.props.handler(count, results);
   }
 
   render() {
     return (
       <div id="form">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}> 
 
           <legend>Enter API URL, and click on desired METHOD</legend>
 
@@ -63,7 +73,7 @@ class Form extends React.Component {
         </section>
 
         <section id="apiRequest">
-          <p>{this.state.display}</p>
+          <p>Request: {this.state.display}</p>
         </section>
       </div>
     );
