@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import JSONPretty from 'react-json-pretty';
 
 class Results extends React.Component {
 
@@ -31,7 +32,7 @@ class Results extends React.Component {
                 console.log(this.props.results[idx]);
                 return (
                   <li key={idx}>
-                    {JSON.stringify(results)}
+                    <JSONPretty id="json-pretty" data={JSON.stringify(results)}></JSONPretty>
                   </li>
                 );
               })}
