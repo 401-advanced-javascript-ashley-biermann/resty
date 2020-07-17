@@ -4,28 +4,56 @@
  */
 
 import React from 'react';
+import If from '../if/if.js';
+import JSONPretty from 'react-json-pretty';
 
 class History extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      details: false,
+    }
+  }
 
+  toggleDetails = (event) => {
+    event.preventDefault();
+    console.log('toggling details');
+    if (!this.state.details) {
+      this.setState({ details: true });
+    } else {
+      this.setState({ details: false });
+    }
+  }
 
+  handleReRun = (event) => {
+    // TODO:
+  // Add a button to each to re-run the search
+  // Redirect to the home page to show the results
+    event.preventDefault();
+    console.log('handling rerun');
   }
 
   render() {
     return (
       <div id="historyPage">
-        <h1>HISTORY PAGE</h1>
+        <h1>History</h1>
         <section id="apiCalls">
           <ul>
-            <h2>Previously Made API Calls</h2>
-            <li>Sample API call</li>
-            <li>Sample API call</li>
+            {this.props.archive.map((item, idx) => {
+              return (
+                <li key={idx} >
+                  <JSONPretty id="json-pretty" onClick={this.toggleDetails} data={ item.method + ' ' + item.url }></JSONPretty>
+                  <If condition={this.state.details}>
+                  <p>
+                  <JSONPretty id="json-pretty" data={ item.body }></JSONPretty>
+                  </p>
+                  <input type="button" id="reRun" value="Re-Run Search" onClick={this.handleReRun} />
+                  </If>
+                </li>
+              );
+            })}
+
           </ul>
-        </section>
-        <input type="button" id="historySubmit" value="Re-Run Search" onClick={this.handleSubmit} />
-        <section id="fullQueryDetails">
-          <li>query details</li>
         </section>
       </div>
     );
@@ -34,8 +62,5 @@ class History extends React.Component {
 
 export default History;
 
-// Create a new <History/> page component that will:
-// Show a list of URLs you’ve loaded before
 // Show full details of each search
-// Add a button to each to re-run the search
-// Redirect to the home page to show the results
+

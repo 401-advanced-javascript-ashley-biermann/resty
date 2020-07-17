@@ -17,13 +17,24 @@ class App extends React.Component {
     this.state = {
       headers: '',
       results: '',
+      history: [],
+      archive: [],
     };
 
     this.handleForm = this.handleForm.bind(this);
+    this.getHistory = this.getHistory.bind(this);
   }
-  // remove count, add headers
-  handleForm(headers, results) {
+
+  handleForm(headers, results, apiCall) {
     this.setState({ headers, results });
+    this.state.history.push(apiCall);
+    localStorage.setItem('history', JSON.stringify(this.state.history));
+    this.getHistory();
+  }
+  
+  async getHistory() {
+    let history = await JSON.parse(localStorage.getItem('history'));
+    this.setState({ archive: history });
   }
 
   render() {
@@ -34,10 +45,12 @@ class App extends React.Component {
 
           <Route exact path="/">
             <Form handler={this.handleForm} />
-            <Results headers={this.state.headers} results={this.state.results} />
+            <Results headers={this.state.headers} results={this.state.results} archive={this.state.archive}/>
           </Route>
 
-          <Route exact path="/history"><History /></Route>
+          <Route exact path="/history">
+            <History archive={this.state.archive}/>
+          </Route>
 
           <Footer />
         </BrowserRouter>

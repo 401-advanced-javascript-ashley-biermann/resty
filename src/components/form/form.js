@@ -3,6 +3,8 @@
  * @component Form
  */
 
+// TODO: add loading image while awaiting fetch
+
 import React from 'react';
 
 class Form extends React.Component {
@@ -11,7 +13,6 @@ class Form extends React.Component {
     this.state = {
       value: '',
       method: 'get',
-      display: '',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,9 +39,10 @@ class Form extends React.Component {
     let response = await fetch(this.state.value, restOption);
     let headers = JSON.stringify(response.headers, null, 2);
     let data = await response.json();
-    let results = JSON.stringify(data);
+    let results = JSON.stringify(data, null, 2);
+    let apiCall = { url: this.state.value, method: this.state.method, body: results }
 
-    this.props.handler(headers, results);
+    this.props.handler(headers, results, apiCall);
   }
 
   render() {
@@ -77,9 +79,9 @@ class Form extends React.Component {
           })} type="button" value="DELETE" />
         </section>
 
-        <section id="apiRequest">
-          <p>Request: {this.state.display}</p>
-        </section>
+        {/* <section id="apiRequest">
+          <p>Request: {this.state.method} {this.state.value}</p>
+        </section> */}
       </div>
     );
   }
