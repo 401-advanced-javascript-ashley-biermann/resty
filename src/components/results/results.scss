@@ -1,20 +1,30 @@
 @import './variables';
 
 #results {
-  margin-left: 200px;
-  margin-right: 200px;
+  
+  margin-left: 20px;
+  margin-right: 20px;
   text-align: center;
+  background-color: $emptyBoxColor;
 
   p {
-    background-color: $emptyBoxColor;
     height: 5vh;
   }
 
-  section {
-    background-color: $emptyBoxColor;
+  #shortHistory {
+    float: left;
+  }
+
+  #currentResults {
+
+    margin-left: 20px;
+    border-left: 20px;
     padding-top: 20px;
     height: 43vh;
     overflow: scroll;
-    text-align: left;
   }
+}
+
+#json-pretty {
+  background-color: $emptyBoxColor;
 }

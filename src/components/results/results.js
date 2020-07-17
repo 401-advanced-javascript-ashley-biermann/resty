@@ -3,50 +3,42 @@
  * @component Results
  */
 
+// TODO: populate details in the state (method and url) and also in the url bar when user clicks on link in short history onClick={this.populate?}
+
 import React from 'react';
+import If from '../if/if.js';
+import JSONPretty from 'react-json-pretty';
 
 class Results extends React.Component {
 
   render() {
+    return (
+      <div id="results">
+        <section id="shortHistory">
+          <ul>
+            {this.props.archive.map((item, idx) => {
+              return (
+                <li key={idx} >
+                  <JSONPretty id="json-pretty" data={item.method + ' ' + item.url}></JSONPretty>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
 
-    if (!Object.keys(this.props.results).length) {
-      return (
-        <div id="results">
-          <p>Please Can I Has?? </p>
-          <section>
-            Wait for it ...
-          </section>
-        </div>
-      );
-
-    } else {
-
-      console.log(this.props.results);
-      return (
-        <div id="results">
-          <p>Count: {this.props.count}</p>
-          <section>
+        <If condition={this.props.results}>
+          <section id="currentResults">
             <ul>
-              {this.props.results.map((results, idx) => {
-                console.log(this.props.results[idx]);
-                return (
-                  <li key={idx}>
-                    {JSON.stringify(results)}
-                  </li>
-                );
-              })}
+              <JSONPretty id="json-pretty" data={this.props.headers}></JSONPretty>
+            </ul>
+            <ul>
+              <JSONPretty id="json-pretty" data={this.props.results}></JSONPretty>
             </ul>
           </section>
-        </div>
-      );
-    }
+        </If>
+      </div>
+    );
   }
 }
 
-
 export default Results;
-
-// Expects the count, headers, results to be sent in as props
-// Renders the count
-// Renders the Result Headers as “pretty” JSON
-// Renders the Result Body as “pretty” JSON
