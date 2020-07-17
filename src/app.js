@@ -3,11 +3,13 @@
  */
 
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './design/design.scss';
-import Header from './components/header/header.js';
 import Form from './components/form/form.js';
-import Results from './components/results/results.js';
 import Footer from './components/footer/footer.js';
+import History from './components/history/history.js';
+import Header from './components/header/header.js';
+import Results from './components/results/results.js';
 
 class App extends React.Component {
   constructor() {
@@ -19,18 +21,26 @@ class App extends React.Component {
 
     this.handleForm = this.handleForm.bind(this);
   }
-// remove count, add headers
-  handleForm (headers, results) {
+  // remove count, add headers
+  handleForm(headers, results) {
     this.setState({ headers, results });
   }
 
   render() {
     return (
       <div>
-        <Header />
-        <Form handler={this.handleForm} />
-        <Results headers={this.state.headers} results={this.state.results} />
-        <Footer />
+        <BrowserRouter>
+          <Header />
+
+          <Route exact path="/">
+            <Form handler={this.handleForm} />
+            <Results headers={this.state.headers} results={this.state.results} />
+          </Route>
+
+          <Route exact path="/history"><History /></Route>
+
+          <Footer />
+        </BrowserRouter>
       </div>
     );
   }

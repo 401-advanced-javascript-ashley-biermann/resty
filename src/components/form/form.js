@@ -33,6 +33,7 @@ class Form extends React.Component {
     let restOption = {
       method: this.state.method,
     }
+    // console.log(this.state);
 
     let response = await fetch(this.state.value, restOption);
     let headers = JSON.stringify(response.headers, null, 2);
@@ -67,9 +68,9 @@ class Form extends React.Component {
             method: 'put',
           })} type="button" value="PUT" />
 
-          <input name="patch" className="button" id="patch" onClick={() => this.setState({
+          {/* <input name="patch" className="button" id="patch" onClick={() => this.setState({
             method: 'patch',
-          })} type="button" value="PATCH" />
+          })} type="button" value="PATCH" /> */}
 
           <input name="delete" className="button" id="delete" onClick={() => this.setState({
             method: 'delete',
