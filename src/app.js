@@ -19,19 +19,24 @@ class App extends React.Component {
       results: '',
       history: [],
       archive: [],
+      method: '',
+      url: '',
     };
 
-    this.handleForm = this.handleForm.bind(this);
     this.getHistory = this.getHistory.bind(this);
   }
 
-  handleForm(headers, results, apiCall) {
+  handleForm = (headers, results, apiCall) => {
     this.setState({ headers, results });
     this.state.history.push(apiCall);
     localStorage.setItem('history', JSON.stringify(this.state.history));
     this.getHistory();
   }
-  
+
+  populateFromRedirect = async (method, url) => {
+    await this.setState({ method: method, url: url });
+  }
+
   async getHistory() {
     let history = await JSON.parse(localStorage.getItem('history'));
     this.setState({ archive: history });
@@ -44,12 +49,12 @@ class App extends React.Component {
           <Header />
 
           <Route exact path="/">
-            <Form handler={this.handleForm} />
-            <Results headers={this.state.headers} results={this.state.results} archive={this.state.archive}/>
+            <Form handler={this.handleForm} method={this.state.method} url={this.state.url} />
+            <Results headers={this.state.headers} results={this.state.results} archive={this.state.archive} />
           </Route>
 
           <Route exact path="/history">
-            <History archive={this.state.archive}/>
+            <History archive={this.state.archive} handler={this.populateFromRedirect} />
           </Route>
 
           <Footer />

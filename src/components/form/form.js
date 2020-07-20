@@ -11,8 +11,8 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
-      method: 'get',
+      method: this.props.method ? this.props.method : 'get',
+      value: this.props.url ? this.props.url : '',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,7 +34,6 @@ class Form extends React.Component {
     let restOption = {
       method: this.state.method,
     }
-    // console.log(this.state);
 
     let response = await fetch(this.state.value, restOption);
     let headers = JSON.stringify(response.headers, null, 2);

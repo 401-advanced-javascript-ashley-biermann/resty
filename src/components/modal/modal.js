@@ -20,10 +20,10 @@ class Modal extends React.Component {
       <div id="modal-container">
         <If condition={this.state.visible}>
           {this.props.children}
-          <button onClick={this.toggle}>Hide Contents</button>
+          <button onClick={this.toggle}>Hide Results Body</button>
         </If>
         <If condition={!this.state.visible}>
-          <button onClick={this.toggle}>Show Contents</button>
+          <button onClick={this.toggle}>Show Results Body</button>
         </If>
       </div>
     )
