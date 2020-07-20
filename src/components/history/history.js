@@ -36,12 +36,9 @@ class History extends React.Component {
 
   handleReRun = (event) => {
     event.preventDefault();
-
-    // this.setState({ method: method })
-    // let method = this.state.method;
-    // let url = this.item.url;
-    // console.log(method);
-    this.props.handler('get', 'https://swapi.dev/api/people');
+    let idx = event.target.getAttribute('idx');
+    let item = this.props.archive[idx];
+    this.props.handler(item.method, item.url);
     this.setState({ redirect: "/" });
   }
 
@@ -58,19 +55,19 @@ class History extends React.Component {
               return (
                 <li key={idx} id={idx}>
 
-                  <JSONPretty id={idx} onClick={this.toggleDetails} data={item.method + ' ' + item.url}></JSONPretty>
+                  <JSONPretty id={idx} /*onClick={this.toggleDetails}*/ data={item.method + ' ' + item.url}></JSONPretty>
 
                   {/* <If condition={ this.state.details[idx] === true }> */}
 
-                    <Modal condition={this.state.details}>
+                  <Modal condition={this.state.details}>
 
                     <p>
-                  <JSONPretty data={ item.body }></JSONPretty>
+                      <JSONPretty data={item.body}></JSONPretty>
                     </p>
                   </Modal>
 
                   {/* </If> */}
-          <input type="button" id="reRun" value="Re-Run Search" onClick={this.handleReRun} />
+                  <input type="button" value="Re-Run Search" idx={idx} onClick={this.handleReRun} method={item.method} url={item.url} />
                 </li>
               );
             })}
